@@ -27,7 +27,7 @@ int main() {
 
     cout << "The area of the rectangle is: " << area << endl;
 
-    // Variable assignment frome right to left
+    // Variable assignment from right to left
     // x = y = z = 5;
     // x = (y = (z = 5));
 
