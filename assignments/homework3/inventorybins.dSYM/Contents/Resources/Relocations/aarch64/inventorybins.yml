@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/joshdouglas/Documents/dev/repos/cs3060-coursework/assignments/homework3/inventorybins'
+relocations:     []
+...
