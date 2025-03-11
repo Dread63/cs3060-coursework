@@ -53,7 +53,7 @@ int main() {
         cout << "\nEnter 0 to quit, or choose a bin Number: ";
         cin >> choice;
 
-        //Valdiate the user's choice
+        // Validate the user's choice
         while (choice < 0 || choice > NUM_BINS) {
 
             cout << "\nEnter 0 to quit, or choose a bin number: ";
@@ -61,13 +61,14 @@ int main() {
         }
 
         if (choice != 0)
-            selecteBins()
+            selectBin(bins, choice - 1);
+
     } while (choice != 0);
 
     return 0;
 }
 
-void selectBin(InventoryBin bin[], int) {
+void selectBin(InventoryBin bin[], int choice) {
 
     int numParts; // Number of parts
     char aorr; // Add or remove parts
@@ -88,14 +89,47 @@ void selectBin(InventoryBin bin[], int) {
 
         // Get the number of parts to add
         cout << "How many parts to add? ";
+        cin >> numParts;
+
+        // Okay, add the parts.
+        addParts(bin[choice], numParts);
+    }
+
+    else {
+
+        // Get the number of parts to remove
+        cout << "How many parts to remove? ";
+        cin >> numParts;
+
+        // Okay, remove the parts.
+        removeParts(bin[choice], numParts);
     }
 }
+
 void addParts(InventoryBin &bin, int numAdd) {
 
     // Validate the number of parts and add them if the number is valid
-    if (numAdd < )
+    if (numAdd < 0)
+        cout << "\nError: use positive values.\n";
+    else if (numAdd + bin.num > 30)
+        cout << "\nError: The bin can only hold 30 parts.\n";
+    else
+        bin.num += numAdd;
 }
+
 void removeParts(InventoryBin &bin, int numRem) {
 
-    // Valid
+    // Validate the number of parts and remove them if the number is valid
+    if(numRem < 0)
+        cout << "\nError: use positive values.\n";
+    else if (bin.num - numRem < 0)
+    {
+
+        cout << "\nError: You are attempting to remove more parts than ";
+        cout << "the bin is holding.\n";
+    }
+
+    else
+        bin.num -= numRem;
+    
 }

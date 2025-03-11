@@ -122,6 +122,19 @@ void transaction(Drink m[], int choice, double &earnings) {
         cout << "\nThump, thump, thump, splat!\n" << "Enjoy your beverage!\n\n";
 
         // Calculate any due change
-        cout << "Change calculated: " << m
+        cout << "Change calculated: " << (money - m[choice].price) << endl;
+
+        // If change is due, give it to the customer
+        if ((money - m[choice].price) > 0) 
+            cout << "Your change, " << (money - m[choice].price) << " has just dropped into the change Dispenser.\n\n";
+
+        // Update our earnings
+        earnings += m[choice].price;
+
+        // Decrease the number of cans of the selected drink currently in the machine
+        m[choice].num--;
+
+        // Display the number of cans of this drink currently in the machine.
+        cout << "There are " << m[choice].num << " drinks of that type left.\n";
     }
 }
