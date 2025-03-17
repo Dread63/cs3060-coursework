@@ -9,6 +9,20 @@
             "cwd": "${fileDirname}",
             "preLaunchTask": "C/C++: clang++ build active file"
         },
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/usr/bin/lldb",  // Ensure this path is correct for your system
+            "preLaunchTask": "C/C++: clang++ build active file"  // Compile before running
+        }
     ],
     "version": "2.0.0"
 }
